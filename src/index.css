@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  width: 100%;
+  overflow-x: hidden;
+  background: #100d14;
+  color: #f7f5f7;
+  font-family: "Sora", sans-serif;
+}
+
+button,
+a {
+  font-family: inherit;
+}
+
+#root {
+  width: 100%;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* @import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap");
+
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #100d14;
+  color: #f7f5f7;
+  font-family: "Sora", sans-serif;
+}
+
+button,
+a {
+  font-family: inherit;
+} */
