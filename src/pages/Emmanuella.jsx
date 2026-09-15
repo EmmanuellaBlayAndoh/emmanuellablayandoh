@@ -8,6 +8,7 @@ import {
 import { HugeiconsIcon } from "@hugeicons/react";
 
 import Navbar from "../components/Navbar";
+import LightRays from "../components/LightRays";
 import profileImage from "../assets/profile.jpeg";
 
 const fadeUp = {
@@ -70,6 +71,24 @@ const socials = [
 function Emmanuella() {
   return (
     <main className="min-h-dvh w-full overflow-hidden bg-[#080b11] text-[#f7f5f7]">
+      {/* Light Rays */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden opacity-60">
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#AEB4C8"
+          raysSpeed={0.45}
+          lightSpread={0.85}
+          rayLength={1.45}
+          pulsating={false}
+          fadeDistance={1.15}
+          saturation={0.55}
+          followMouse={true}
+          mouseInfluence={0.08}
+          noiseAmount={0.025}
+          distortion={0.025}
+          className="h-full w-full"
+        />
+      </div>
       <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10 xl:px-12">
         <Navbar />
 

@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Hero from "./components/Hero";
 import Emmanuella from "./pages/Emmanuella";
+import Works from "./pages/Works";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -8,6 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Hero />} />
         <Route path="/emmanuella" element={<Emmanuella />} />
+        <Route path="/works" element={<Works />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   );
