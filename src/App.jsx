@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import Emmanuella from "./pages/Emmanuella";
 import Works from "./pages/Works";
 import Contact from "./pages/Contact";
+import RenovynEarth from "./pages/RenovynEarth";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/emmanuella" element={<Emmanuella />} />
         <Route path="/works" element={<Works />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/works/renovyn-earth" element={<RenovynEarth />} />
       </Routes>
     </BrowserRouter>
   );

@@ -79,7 +79,8 @@ export default function Contact() {
         flex-col
         pb-20
         pt-16
-        sm:pt-20
+        sm:pt-28
+        lg:pt-36
       "
         >
           <motion.section

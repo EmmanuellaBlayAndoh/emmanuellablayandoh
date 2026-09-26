@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  ArrowUpRight01Icon,
-  ArrowRight01Icon,
-} from "@hugeicons/core-free-icons";
+import { ArrowUpRight01Icon } from "@hugeicons/core-free-icons";
 import Navbar from "../components/Navbar";
 import LightRays from "../components/LightRays";
+import renovynEarth from "../assets/renovynearth.png";
+import gbatOnline from "../assets/gbatonline.png";
+import takacycle from "../assets/takacycle.png";
+import { Link } from "react-router-dom";
 
 const projects = [
   {
@@ -13,27 +14,21 @@ const projects = [
     description:
       "A climate intelligence platform helping people and communities understand risks like flooding, heat, and air quality through clear, actionable information.",
     tags: ["Climate Risk Awareness", "Sustainability"],
-    imageClass:
-      "bg-[#eaf7fc] bg-[radial-gradient(circle_at_20%_20%,rgba(174,215,239,0.25)_1px,transparent_1px)] [background-size:34px_34px]",
-    accent: "renovyn",
+    image: renovynEarth,
   },
   {
     title: "GBAT ONLINE",
     description:
       "An online learning platform designed to create a simpler and more engaging experience for learners from discovering courses to accessing learning content and tracking their progress.",
     tags: ["E-learning", "Online Exam"],
-    imageClass:
-      "bg-[#f1efff] bg-[radial-gradient(circle_at_20%_20%,rgba(181,172,255,0.22)_1px,transparent_1px)] [background-size:34px_34px]",
-    accent: "gbat",
+    image: gbatOnline,
   },
   {
     title: "TAKACYCLE",
     description:
       "A digital waste management and recycling platform designed to connect users with collection services while making the process of managing and recycling waste more convenient.",
     tags: ["Waste Management", "Recycling"],
-    imageClass:
-      "bg-[#ecffd2] bg-[radial-gradient(circle_at_20%_20%,rgba(155,205,92,0.18)_1px,transparent_1px)] [background-size:34px_34px]",
-    accent: "takacycle",
+    image: takacycle,
   },
 ];
 
@@ -78,7 +73,7 @@ const cardVariants = {
 
 export default function Works() {
   return (
-    <main className="min-h-dvh w-full overflow-hidden bg-[#080b11] text-white">
+    <main className="min-h-dvh w-full bg-[#080b11] text-white">
       {/* Light Rays */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden opacity-60">
         <LightRays
@@ -104,7 +99,7 @@ export default function Works() {
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="pb-14 pt-16 sm:pb-16 sm:pt-20 md:pt-24 lg:pb-20"
+          className="pb-14 pt-24 sm:pb-16 sm:pt-28 md:pt-24 lg:pb-20 lg:pt-36"
         >
           {/* Section label */}
           <motion.div
@@ -179,92 +174,38 @@ export default function Works() {
 
 function ProjectCard({ project, index }) {
   return (
-    <motion.article
-      variants={cardVariants}
-      className={`group min-w-0 ${
-        index === 2 ? "lg:max-w-[calc(50%-18px)]" : ""
-      }`}
-    >
+    <motion.article variants={cardVariants} className="group min-w-0 w-full">
+      {/* Project image */}
       {/* Project image */}
       <motion.div
         whileHover="hover"
-        className={`relative aspect-[1.65/1] overflow-hidden rounded-[14px] sm:rounded-[16px] ${project.imageClass}`}
+        className="relative aspect-[1.65/1] overflow-hidden rounded-[14px] bg-[#1b1b20] sm:rounded-[16px]"
       >
-        {/* Decorative pattern */}
-        <div className="absolute inset-0 opacity-40">
-          <ProjectPattern type={project.accent} />
-        </div>
-
-        {/* Renovyn phone mockup */}
-        {project.accent === "renovyn" && (
-          <motion.div
-            variants={{
-              hover: {
-                y: -8,
-                rotate: -1.5,
-              },
-            }}
-            transition={{
-              duration: 0.45,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="absolute bottom-[-2%] left-1/2 h-[76%] w-[27%] -translate-x-1/2 rounded-[22px] border-[3px] border-[#22252b] bg-black shadow-[0_20px_50px_rgba(0,0,0,0.25)] sm:rounded-[26px]"
-          >
-            <div className="absolute left-1/2 top-1.5 h-1 w-12 -translate-x-1/2 rounded-full bg-[#272727]" />
-          </motion.div>
-        )}
-
-        {/* GBAT visual */}
-        {project.accent === "gbat" && (
-          <motion.div
-            variants={{
-              hover: {
-                scale: 1.03,
-              },
-            }}
-            transition={{
-              duration: 0.5,
-            }}
-            className="absolute inset-[16%] rounded-xl border border-white/50 bg-white/30 backdrop-blur-[2px]"
-          >
-            <div className="flex h-full items-center justify-center">
-              <span className="text-[clamp(38px,6vw,80px)] font-black tracking-[-0.08em] text-[#c8c1ff]/40">
-                GBAT
-              </span>
-            </div>
-          </motion.div>
-        )}
-
-        {/* Takacycle visual */}
-        {project.accent === "takacycle" && (
-          <motion.div
-            variants={{
-              hover: {
-                scale: 1.04,
-                rotate: 2,
-              },
-            }}
-            transition={{
-              duration: 0.5,
-            }}
-            className="absolute left-1/2 top-1/2 h-[42%] w-[32%] -translate-x-1/2 -translate-y-1/2 rounded-full border-[18px] border-[#d8f3b3]/60"
-          />
-        )}
+        <motion.img
+          src={project.image}
+          alt={project.title}
+          className="h-full w-full object-cover"
+          variants={{
+            hover: {
+              scale: 1.04,
+            },
+          }}
+          transition={{
+            duration: 0.5,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+        />
 
         {/* Hover overlay */}
         <motion.div
-          initial={{
-            opacity: 0,
-          }}
+          initial={{ opacity: 0 }}
           variants={{
             hover: {
               opacity: 1,
             },
           }}
-          transition={{
-            duration: 0.3,
-          }}
-          className="absolute inset-0 bg-black/[0.04]"
+          transition={{ duration: 0.3 }}
+          className="absolute inset-0 bg-black/[0.08]"
         />
       </motion.div>
 
@@ -293,57 +234,51 @@ function ProjectCard({ project, index }) {
           </div>
 
           {/* View project */}
-          <motion.button
-            type="button"
-            whileHover={{
-              scale: 1.04,
-              borderColor: "rgba(255,255,255,0.6)",
-            }}
-            whileTap={{
-              scale: 0.96,
-            }}
-            className="group/button flex shrink-0 items-center gap-3 rounded-[9px] border border-white/50 px-3 py-2 text-[10px] font-semibold text-white transition-colors hover:bg-white/[0.05] sm:px-3.5 sm:py-2.5 sm:text-[11px]"
-          >
-            <span>View Project</span>
+          {project.title === "RENOVYN EARTH APP" ? (
+            <Link to="/works/renovyn-earth">
+              <motion.div
+                whileHover={{
+                  scale: 1.04,
+                  borderColor: "rgba(255,255,255,0.6)",
+                }}
+                whileTap={{ scale: 0.96 }}
+                className="group/button flex shrink-0 items-center gap-3 rounded-[9px] border border-white/50 px-3 py-2 text-[10px] font-semibold text-white transition-colors hover:bg-white/[0.05] sm:px-3.5 sm:py-2.5 sm:text-[11px]"
+              >
+                <span>View Project</span>
 
-            <motion.span
-              whileHover={{
-                rotate: 45,
-              }}
-              className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[#15171c]"
+                <motion.span
+                  className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[#15171c]"
+                  whileHover={{ rotate: 45 }}
+                >
+                  <HugeiconsIcon
+                    icon={ArrowUpRight01Icon}
+                    size={13}
+                    strokeWidth={2}
+                  />
+                </motion.span>
+              </motion.div>
+            </Link>
+          ) : (
+            <motion.button
+              type="button"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              className="group/button flex shrink-0 items-center gap-3 rounded-[9px] border border-white/50 px-3 py-2 text-[10px] font-semibold text-white transition-colors hover:bg-white/[0.05] sm:px-3.5 sm:py-2.5 sm:text-[11px]"
             >
-              <HugeiconsIcon
-                icon={ArrowUpRight01Icon}
-                size={13}
-                strokeWidth={2}
-              />
-            </motion.span>
-          </motion.button>
+              <span>View Project</span>
+
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[#15171c]">
+                <HugeiconsIcon
+                  icon={ArrowUpRight01Icon}
+                  size={13}
+                  strokeWidth={2}
+                />
+              </span>
+            </motion.button>
+          )}
         </div>
       </div>
     </motion.article>
   );
 }
 
-function ProjectPattern({ type }) {
-  const symbol = type === "renovyn" ? "R" : type === "gbat" ? "GBAT" : "T";
-
-  return (
-    <div className="grid h-full w-full grid-cols-7 grid-rows-5 place-items-center overflow-hidden text-[20px] font-bold sm:text-[25px]">
-      {Array.from({ length: 35 }).map((_, index) => (
-        <span
-          key={index}
-          className={
-            type === "renovyn"
-              ? "text-[#c3e8fa]"
-              : type === "gbat"
-                ? "text-[#d6d0ff]"
-                : "text-[#d8f3b3]"
-          }
-        >
-          {symbol}
-        </span>
-      ))}
-    </div>
-  );
-}

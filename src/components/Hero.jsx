@@ -109,7 +109,7 @@ export default function Hero() {
 
         {/* Hero content */}
         <motion.div
-          className="relative flex min-h-0 flex-1 flex-col justify-center gap-16 pb-8 pt-10 sm:gap-14 sm:pb-10 sm:pt-12 lg:gap-0 lg:pb-12 lg:pt-16"
+          className="relative flex min-h-0 flex-1 flex-col justify-center gap-16 pb-8 pt-24 sm:gap-14 sm:pb-10 sm:pt-28 md:pt-32 lg:gap-0 lg:pb-12 lg:pt-36"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
